@@ -205,3 +205,122 @@ match color:
         print("Grass is green")
     case Color.BLUE:
         print("I'm feeling the blues :(")
+
+
+    #Defining Functions
+def fib(n):    # write Fibonacci series up to n
+    """Print a Fibonacci series up to n."""
+    a, b = 0, 1
+    while a < n:
+        print(a, end=' ')
+        a, b = b, a+b
+    print()
+fib(100)
+
+
+def ask_ok(prompt, retries=4, reminder='Please try again!'):
+    while True:
+        ok = input(prompt)
+        if ok in ('y', 'ye', 'yes'):
+            return True
+        if ok in ('n', 'no', 'nop', 'nope'):
+            return False
+        retries = retries - 1
+        if retries < 0:
+            raise ValueError('invalid user response')
+        print(reminder)
+
+result = ask_ok("Do you want to proceed? ")  # Gọi hàm và lưu kết quả vào biến 'result'
+print("User's response:", result)
+
+def f(a, L=[]):
+    L.append(a)
+    return L
+print(f(1))
+print(f(2))
+print(f(3))
+
+# list.append(x)
+a = [1, 2, 3]
+a.append(4)
+print(a)  # Output: [1, 2, 3, 4]
+
+
+# list.extend(iterable)
+a = [1, 2, 3]
+b = [4, 5, 6]
+a.extend(b)
+print(a)  # Output: [1, 2, 3, 4, 5, 6]
+
+
+# list.insert(i, x)
+a = [1, 2, 3]
+a.insert(1, 4)
+print(a)  # Output: [1, 4, 2, 3]
+
+
+# list.remove(x)
+a = [1, 2, 3, 2]
+a.remove(2) #remove values in first array
+print(a)  # Output: [1, 3, 2]
+
+
+# list.pop([i])
+a = [1, 2, 3]
+removed_item = a.pop(1) #remove value index = 1
+print(a)  # Output: [1, 3] 
+print(removed_item)  # Output: 2
+
+# list.clear()
+a = [1, 2, 3]
+a.clear()
+print(a)  # Output: []
+
+
+# list.index(x[, start[, end]])
+a = [1, 2, 3, 2]
+index = a.index(2) #find index when value = 2 
+print(index)  # Output: 1
+
+# list.count(x)
+a = [1, 2, 3, 2]
+count = a.count(2) #count value = 2
+print(count)  # Output: 2
+
+# list.sort(*, key=None, reverse=False)
+a = [3, 1, 4, 1, 5, 9, 2]
+a.sort()
+print(a)  # Output: [1, 1, 2, 3, 4, 5, 9]
+
+# list.reverse()
+a = [1, 2, 3]
+a.reverse()
+print(a)  # Output: [3, 2, 1]
+
+# list.copy()
+a = [1, 2, 3]
+b = a.copy() #list copy
+print(b)  # Output: [1, 2, 3]
+
+tel = {'jack': 4098, 'sape': 4139}
+tel['guido'] = 4127
+print(tel)
+
+year = 2016
+event = 'Referendum'
+print(f'Results of the {year} {event}')
+
+table = {'Sjoerd': 4127, 'Jack': 4098, 'Dcab': 76478}
+for name, phone in table.items():
+    print(f'{name:10} ==> {phone:10d}')
+
+animals = 'eels'
+print(f'My hovercraft is full of {animals}.')
+animals = 'eels'
+print(f'My hovercraft is full of {animals!r}.')
+
+bugs = 'roaches'
+count = 13
+area = 'living room'
+print(f'Debugging {bugs=} {count=} {area=}')
+
